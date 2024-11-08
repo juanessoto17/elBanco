@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <img src="img/DALL·E 2024-11-08 13.44.21 - A shield emblem inspired by a bank, with a modern and minimalist design in heraldic style. The shield features symbols of stability and security, like.webp" alt="Escudo Banco">
+    <div id="banco"></div><br>
+    <div id="sucursal"></div><br>
+    <hr>
+    <div id="titular"></div><br>
+    <div id="nro_cuenta"></div><br>
+    <hr>
+    <div id="saldo"></div><br>
+    <hr>
+    <div id="nro_banco"></div><br>
+    <div id="abierto"></div><br>
+    </div>
+    <script>
+        let datosJson;
+
+        fetch('banco.json')
+        .then(res => res.json())
+        .then((salida) =>{
+            datosJson = salida
+
+            let elementoTexto = document.getElementById("banco")
+                elementoTexto.textContent = datosJson.banco
+
+            let elementoTexto2 = document.getElementById("sucursal")
+                elementoTexto2.textContent = datosJson.sucursal
+
+            let elementoTexto3 = document.getElementById("titular")
+                elementoTexto3.textContent = datosJson.titular
+            
+            let elementoTexto4 = document.getElementById("nro_cuenta")
+                elementoTexto4.textContent = "Nro de cuenta: " + datosJson.nro_cuenta
+
+            let elementoTexto5 = datosJson.saldo.map(s => `${s.moneda}: ${s.monto}`).join(", ");
+                document.getElementById("saldo").textContent = "Saldo: " + elementoTexto5;
+
+            let elementoTexto6 = document.getElementById("nro_banco")
+                elementoTexto6.textContent = datosJson.nro_banco
+
+            let elementoTexto7 = document.getElementById("abierto")
+                elementoTexto7.textContent = datosJson.abierto
+            
+        })
+        .catch(function(error) {alert(error)})
+    </script>
+</body>
+</html>

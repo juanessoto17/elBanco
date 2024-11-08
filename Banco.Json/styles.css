@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+body{
+    font-family: "Calistoga", serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #3c688d;
+    display: flex;
+    justify-content: center ;
+    align-items: center; 
+    height: 100vh;
+}
+.container{
+    text-align: center;
+    background-color: #AAC2BF;
+    backdrop-filter: blur(500px);
+    padding: 200px;
+    padding-top: 20px;
+    padding-bottom: 200px;
+    border-radius: 30px;
+    box-shadow: #000000 3px 5px 10px;
+    font-size: 20px;
+}
+.container img{
+    margin-bottom: 60px;
+    width: 200px;
+    border-radius: 100px;
+}
